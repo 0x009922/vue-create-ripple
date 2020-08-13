@@ -1,0 +1,26 @@
+{
+  "name": "vue-create-ripple",
+  "version": "0.0.0",
+  "main": "dist/index.esm.js",
+  "module": "dist/index.esm.js",
+  "types": "dist",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-import-resolver-typescript": "^2.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.23.1",
+    "rollup-plugin-typescript2": "^0.27.2",
+    "tslib": "^2.0.1",
+    "typescript": "^3.9.7",
+    "vue": "3.0.0-rc.5"
+  }
+}
