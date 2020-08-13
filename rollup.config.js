@@ -9,8 +9,6 @@ export default {
   output: {
     file: pkg.main,
     format: 'es'
-    // dir: 'dist',
-    // format: ''
   },
   plugins: [ts()]
 };

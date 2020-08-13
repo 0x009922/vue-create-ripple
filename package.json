@@ -1,8 +1,8 @@
 {
   "name": "vue-create-ripple",
   "version": "0.0.0",
-  "main": "dist/index.esm.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/vue-create-ripple.esm.js",
+  "module": "dist/vue-create-ripple.esm.js",
   "types": "dist",
   "license": "MIT",
   "scripts": {
