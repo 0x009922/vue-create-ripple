@@ -10,5 +10,7 @@ export default {
     file: pkg.main,
     format: 'es'
   },
-  plugins: [ts()]
+  plugins: [
+    ts()
+  ]
 };

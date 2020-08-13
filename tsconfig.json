@@ -9,7 +9,6 @@
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "declaration": true,
-    "outDir": "dist",
 
     "rootDir": ".",
     "baseUrl": "."
