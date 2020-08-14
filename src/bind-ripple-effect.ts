@@ -1,6 +1,7 @@
 import { relativeMouseCoords, centerCoords, consoleWarn } from './tools';
-import { RippleOptions, NormalizedRippleOptions, normalize } from './options';
-import { createRipple, Ripple } from './create-ripple';
+import { RippleOptions, NormalizedRippleOptions, normalize } from './ripple-options';
+import { makeRippleEffect, Ripple } from './make-ripple-effect';
+import { markElement, unmarkElement, isMarked } from './ripple-mark';
 
 export interface BindedRipple {
   updateOptions: {
@@ -11,13 +12,8 @@ export interface BindedRipple {
   }
 }
 
-export interface CheckIsElementBinded {
-  (el: HTMLElement): boolean;
-}
-
 function findRippledElement(
   el: HTMLElement,
-  check: CheckIsElementBinded,
   calls = 0
 ): HTMLElement | null {
   if (calls > 1000) {
@@ -25,13 +21,13 @@ function findRippledElement(
     return null;
   }
 
-  if (check(el)) {
+  if (isMarked(el)) {
     return el;
   }
 
   const parent = el.parentElement;
   if (parent) {
-    return findRippledElement(parent, check, calls + 1);
+    return findRippledElement(parent, calls + 1);
   }
 
   return null;
@@ -40,9 +36,8 @@ function findRippledElement(
 /**
  * Создание замыкания для работы с одним элементом
  */
-export function bindElement(
+export function bindRippleEffect(
   el: HTMLElement,
-  checkIsBinded: CheckIsElementBinded,
   initialOpts?: RippleOptions
 ): BindedRipple {
   let opts: NormalizedRippleOptions = normalize(initialOpts);
@@ -77,13 +72,13 @@ export function bindElement(
     if (mousedownEvent.target && mousedownEvent.target !== el) {
       // Проверяю каждый элемент вверх по дереву
       // на привязку к нему директивы
-      const rippled = findRippledElement(mousedownEvent.target as HTMLElement, checkIsBinded);
+      const rippled = findRippledElement(mousedownEvent.target as HTMLElement);
       if (rippled && rippled !== el) {
         return;
       }
     }
 
-    let ripple: Ripple | null = createRipple(el, opts, ...resolveCoords(mousedownEvent));
+    let ripple: Ripple | null = makeRippleEffect(el, opts, ...resolveCoords(mousedownEvent));
 
     const onmouseup = () => {
       // clear all mousedown effects
@@ -94,7 +89,7 @@ export function bindElement(
     };
 
     const onmouseenter = (mouseenterEvent: MouseEvent) => {
-      ripple = createRipple(el, opts, ...resolveCoords(mouseenterEvent));
+      ripple = makeRippleEffect(el, opts, ...resolveCoords(mouseenterEvent));
     };
 
     const onmouseleave = () => {
@@ -109,6 +104,9 @@ export function bindElement(
     el.addEventListener('mouseenter', onmouseenter);
   };
 
+  // Помечаю, что под рипплом
+  markElement(el);
+
   if (getComputedStyle(el).position === 'static') {
     el.style.position = 'relative';
   }
@@ -121,6 +119,8 @@ export function bindElement(
     },
     unbind() {
       el.removeEventListener('mousedown', onmousedown);
+      // Снимаю пометку
+      unmarkElement(el);
     }
   };
 }

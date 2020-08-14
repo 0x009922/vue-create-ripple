@@ -1,4 +1,4 @@
-import { NormalizedRippleOptions } from './options';
+import { NormalizedRippleOptions } from './ripple-options';
 import { computeRippleRadius, nextFrame, applyStyles } from './tools';
 
 export interface Ripple {
@@ -7,7 +7,7 @@ export interface Ripple {
   };
 }
 
-export interface CreateRipple {
+export interface MakeRippleEffect {
   (
     el: HTMLElement,
     options: NormalizedRippleOptions,
@@ -24,6 +24,11 @@ function createContainer(opts: NormalizedRippleOptions): HTMLDivElement {
   el.style.overflow = 'hidden';
   el.style.borderRadius = 'inherit';
   el.style.transition = `opacity ${opts.disappearDuration} ${opts.disappearEasing}`;
+
+  // Может быть так, что на контейнер распространятся правила margin/padding.
+  // Поэтому отключаю экплицитно
+  el.style.margin = '0';
+  el.style.padding = '0';
 
   (
     [
@@ -63,7 +68,7 @@ function setCirclePosition(el: HTMLElement, cx: number, cy: number, radius: numb
   [el.style.left, el.style.top] = [cx - radius, cy - radius].map((x) => `${x}px`);
 }
 
-export const createRipple: CreateRipple = (el, opts, x, y) => {
+export const makeRippleEffect: MakeRippleEffect = (el, opts, x, y) => {
   const elRect = el.getBoundingClientRect();
   const radius = opts.radius || computeRippleRadius(elRect.width, elRect.height, x, y);
   const circle = createCircle(opts, radius);

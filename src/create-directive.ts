@@ -1,8 +1,8 @@
 import {
   Directive, DirectiveBinding
 } from 'vue';
-import { RippleOptions } from './options';
-import { BindedRipple, CheckIsElementBinded, bindElement } from './bind-element';
+import { RippleOptions } from './ripple-options';
+import { BindedRipple, bindRippleEffect } from './bind-ripple-effect';
 
 export type RippleDirective = Directive<HTMLElement, RippleOptions | null | undefined>;
 
@@ -39,13 +39,11 @@ export function createDirective(
 ): RippleDirective {
   const bindedRipples: WeakMap<HTMLElement, BindedRipple> = new WeakMap();
 
-  const checkIsElementBinded: CheckIsElementBinded = (el) => bindedRipples.has(el);
-
   return {
     mounted(el, binding) {
       const opts = extractRippleOptions(binding);
       const mergedOpts = mergeOptions(defaults, opts);
-      const ripple = bindElement(el, checkIsElementBinded, mergedOpts);
+      const ripple = bindRippleEffect(el, mergedOpts);
       bindedRipples.set(el, ripple);
     },
     beforeUpdate(el, binding) {
