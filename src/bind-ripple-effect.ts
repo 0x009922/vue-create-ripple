@@ -69,7 +69,7 @@ export function bindRippleEffect(
     }
 
     // Если noNested, то проверяю
-    if (mousedownEvent.target && mousedownEvent.target !== el) {
+    if (opts.noNested && mousedownEvent.target && mousedownEvent.target !== el) {
       // Проверяю каждый элемент вверх по дереву
       // на привязку к нему директивы
       const rippled = findRippledElement(mousedownEvent.target as HTMLElement);
