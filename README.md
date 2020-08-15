@@ -1,5 +1,5 @@
 # vue-create-ripple
 
-Инструмент для создания директивы для Vue 3 с множеством настроек. Ripple-эффект на любой вкус и цвет.
+Flexible tool for creating Ripple effect in Vue 3.
 
-Доки WIP.
+[Documentation with demo](https://liquidsolid.github.io/vue-create-ripple-docs/).
