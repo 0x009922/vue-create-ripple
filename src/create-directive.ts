@@ -35,7 +35,7 @@ function extractRippleOptions(
 }
 
 export function createDirective(
-  defaults?: RippleOptions | null | undefined
+  defaults?: RippleOptions | null
 ): RippleDirective {
   const bindedRipples: WeakMap<HTMLElement, BindedRipple> = new WeakMap();
 
