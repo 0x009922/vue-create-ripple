@@ -1,7 +1,8 @@
 {
   "name": "vue-create-ripple",
   "description": "Flexible tool for creating Ripple effect in Vue 3.",
-  "version": "0.1.0",
+  "homepage": "https://liquidsolid.github.io/vue-create-ripple-docs/",
+  "version": "0.1.1",
   "main": "dist/vue-create-ripple.esm.js",
   "module": "dist/vue-create-ripple.esm.js",
   "types": "dist/src/index.d.ts",
