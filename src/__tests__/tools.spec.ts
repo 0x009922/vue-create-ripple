@@ -1,5 +1,6 @@
+import flushPromises from 'flush-promises';
 import {
-  computeRippleRadius
+  computeRippleRadius, nextFrame
 } from '../tools';
 
 describe('Tools', () => {
@@ -28,6 +29,107 @@ describe('Tools', () => {
       it(description, () => {
         expect(computeRippleRadius(w, h, x, y)).toEqual(pythagoras(a, b));
       });
+    });
+  });
+
+  describe('nextFrame()', () => {
+    interface MockedRequest {
+      next: () => void;
+      mock: jest.Mock;
+    }
+
+    function mockRequestAnimationFrame(): MockedRequest {
+      let queue: (() => void)[] = [];
+
+      jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
+        queue.push(() => {
+          cb(0);
+        });
+        return 0;
+      });
+
+      /**
+       * Эта функция имитирует запуск всех колбеков
+       */
+      const next = () => {
+        queue.forEach((x) => x());
+        queue = [];
+      };
+
+      return {
+        next,
+        mock: window.requestAnimationFrame as jest.Mock
+      };
+    }
+
+    afterEach(() => {
+      (window.requestAnimationFrame as jest.Mock).mockRestore();
+    });
+
+    it('Returns Promise', () => {
+      mockRequestAnimationFrame();
+      expect(nextFrame()).toBeInstanceOf(Promise);
+    });
+
+    it('After first requestAnimationFrame invoke second', () => {
+      const { next, mock } = mockRequestAnimationFrame();
+
+      nextFrame();
+
+      expect(mock).toHaveBeenCalledTimes(1);
+
+      next();
+      expect(mock).toHaveBeenCalledTimes(2);
+    });
+
+    it('Callback not called after fisrt request', () => {
+      const { next } = mockRequestAnimationFrame();
+      const cb = jest.fn();
+
+      nextFrame(cb);
+      next();
+
+      expect(cb).not.toHaveBeenCalled();
+    });
+
+    it('Promise not resolved after first request', async () => {
+      const { next } = mockRequestAnimationFrame();
+
+      const promise = nextFrame();
+      let isPromiseDone = false;
+      promise.then(() => {
+        isPromiseDone = true;
+      });
+      next();
+      await flushPromises();
+
+      expect(isPromiseDone).toBe(false);
+    });
+
+    it('Callback called after second request', () => {
+      const { next } = mockRequestAnimationFrame();
+      const cb = jest.fn();
+
+      nextFrame(cb);
+      next();
+      next();
+
+      expect(cb).toHaveBeenCalled();
+    });
+
+    it('Promise resolved after second request', async () => {
+      const { next } = mockRequestAnimationFrame();
+
+      const promise = nextFrame();
+      let isPromiseDone = true;
+      promise.then(() => {
+        isPromiseDone = true;
+      });
+      next();
+      next();
+      await flushPromises();
+
+      expect(isPromiseDone).toBe(true);
     });
   });
 });
