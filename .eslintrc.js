@@ -33,5 +33,16 @@ module.exports = {
     'no-param-reassign': 'off',
     'max-len': ['warn', 120],
     'import/no-extraneous-dependencies': ['warn', { devDependencies: true }]
-  }
+  },
+  overrides: [
+    {
+      files: ['*.spec.ts'],
+      env: {
+        jest: true
+      },
+      plugins: [
+        'jest'
+      ]
+    }
+  ]
 };

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ripple options mergeDefaults() Correct merging 1`] = `
+Object {
+  "appearDuration": "1234010s",
+  "appearEasing": "cubic-bezier(0.16, 1, 0.3, 1)",
+  "center": false,
+  "circleStyle": Object {
+    "color": "red",
+  },
+  "class": "custom",
+  "disabled": false,
+  "disappearDuration": ".7s",
+  "disappearEasing": "cubic-bezier(0.4, 0, 0.2, 1)",
+  "noNested": true,
+  "radius": null,
+  "self": false,
+}
+`;

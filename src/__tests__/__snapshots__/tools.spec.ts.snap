@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tools applyStyles() Applying all provided styles 1`] = `
+CSSStyleDeclaration {
+  "0": "display",
+  "1": "visibility",
+  "2": "height",
+  "3": "transition",
+  "4": "color",
+  "_importants": Object {
+    "color": "",
+    "display": "",
+    "height": "",
+    "transition": "",
+    "visibility": undefined,
+  },
+  "_length": 5,
+  "_onChange": [Function],
+  "_values": Object {
+    "color": "red",
+    "display": "block",
+    "height": "100px",
+    "transition": "all .41s ease",
+    "visibility": "visible",
+  },
+}
+`;
+
+exports[`Tools computeRippleRadius() Center 1`] = `353.5533905932738`;
+
+exports[`Tools computeRippleRadius() Sector I 1`] = `100`;
+
+exports[`Tools computeRippleRadius() Sector II 1`] = `106.30145812734649`;
+
+exports[`Tools computeRippleRadius() Sector III 1`] = `120.41594578792295`;
+
+exports[`Tools computeRippleRadius() Sector IV 1`] = `108.16653826391968`;
+
+exports[`Tools relativeMouseCoords() Correctly compute mouse coords in element rect 1`] = `
+Array [
+  -189,
+  207,
+]
+`;

@@ -1,5 +1,5 @@
 import { relativeMouseCoords, centerCoords, consoleWarn } from './tools';
-import { RippleOptions, NormalizedRippleOptions, normalize } from './ripple-options';
+import { RippleOptions, NormalizedRippleOptions, mergeDefaults } from './ripple-options';
 import { makeRippleEffect, Ripple } from './make-ripple-effect';
 import { markElement, unmarkElement, isMarked } from './ripple-mark';
 
@@ -40,7 +40,7 @@ export function bindRippleEffect(
   el: HTMLElement,
   initialOpts?: RippleOptions
 ): BindedRipple {
-  let opts: NormalizedRippleOptions = normalize(initialOpts);
+  let opts: NormalizedRippleOptions = mergeDefaults(initialOpts);
 
   /**
    * Функция для определения, где стартовать риппл
@@ -115,7 +115,7 @@ export function bindRippleEffect(
 
   return {
     updateOptions(v) {
-      opts = normalize(v);
+      opts = mergeDefaults(v);
     },
     unbind() {
       el.removeEventListener('mousedown', onmousedown);
