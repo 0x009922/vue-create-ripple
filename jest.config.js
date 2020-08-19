@@ -6,5 +6,9 @@ module.exports = {
     'ts-jest': {
       babelConfig: true
     }
-  }
+  },
+  collectCoverageFrom: [
+    '**/*.ts',
+    '!**/node_modules/**'
+  ]
 };

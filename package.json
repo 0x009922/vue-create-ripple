@@ -13,7 +13,8 @@
   "scripts": {
     "lint": "eslint . --fix",
     "build": "rollup -c",
-    "test": "jest"
+    "test:unit": "jest",
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
