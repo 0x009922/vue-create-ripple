@@ -14,8 +14,9 @@ export function computeRippleRadius(
   x: number,
   y: number
 ): number {
-  const w = x > width / 2 ? x : width - x;
-  const h = y > height / 2 ? y : height - y;
+  const [w, h] = [[x, width], [y, height]].map(
+    ([val, total]) => (val > total / 2 ? val : total - val)
+  );
   return (w ** 2 + h ** 2) ** 0.5;
 }
 
@@ -28,10 +29,7 @@ export function nextFrame(callback?: () => void): Promise<void> {
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         resolve();
-
-        if (callback) {
-          callback();
-        }
+        callback && callback();
       });
     });
   });

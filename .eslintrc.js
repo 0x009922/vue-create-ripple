@@ -32,7 +32,10 @@ module.exports = {
     'no-use-before-define': 'off',
     'no-param-reassign': 'off',
     'max-len': ['warn', 120],
-    'import/no-extraneous-dependencies': ['warn', { devDependencies: true }]
+    'import/no-extraneous-dependencies': ['warn', { devDependencies: true }],
+    'no-unused-expressions': ['warn', {
+      allowShortCircuit: true
+    }]
   },
   overrides: [
     {

@@ -5,7 +5,7 @@ function createElement(): HTMLElement {
 }
 
 describe('Ripple mark on element', () => {
-  it('Without anysing element is unmarked', () => {
+  it('Without anything element is unmarked', () => {
     const el = createElement();
     expect(isMarked(el)).toBe(false);
   });
