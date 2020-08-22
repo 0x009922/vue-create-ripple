@@ -16,7 +16,7 @@ export interface MakeRippleEffect {
   ): Ripple;
 }
 
-function createContainer(opts: NormalizedRippleOptions): HTMLDivElement {
+function createRippleContainer(opts: NormalizedRippleOptions): HTMLDivElement {
   const el = document.createElement('div');
 
   el.style.pointerEvents = 'none';
@@ -46,12 +46,12 @@ function createContainer(opts: NormalizedRippleOptions): HTMLDivElement {
   return el;
 }
 
-function createCircle(opts: NormalizedRippleOptions, radius: number): HTMLDivElement {
+function createRippleCircle(opts: NormalizedRippleOptions, radius: number): HTMLDivElement {
   const el = document.createElement('div');
 
   el.className = opts.class || '';
 
-  el.style.borderRadius = '50%';
+  el.style.borderRadius = '99999px';
   el.style.transition = `transform ${opts.appearDuration} ${opts.appearEasing}`;
   el.style.transformOrigin = 'center center';
   el.style.transform = 'scale(0)';
@@ -71,11 +71,11 @@ function setCirclePosition(el: HTMLElement, cx: number, cy: number, radius: numb
 export const makeRippleEffect: MakeRippleEffect = (el, opts, x, y) => {
   const elRect = el.getBoundingClientRect();
   const radius = opts.radius || computeRippleRadius(elRect.width, elRect.height, x, y);
-  const circle = createCircle(opts, radius);
+  const circle = createRippleCircle(opts, radius);
 
   setCirclePosition(circle, x, y, radius);
 
-  const container = createContainer(opts);
+  const container = createRippleContainer(opts);
   container.appendChild(circle);
   el.appendChild(container);
 
