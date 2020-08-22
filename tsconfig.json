@@ -8,7 +8,7 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "noUnusedLocals": true,
-    "declaration": true,
+    // "declaration": true,
 
     "rootDir": ".",
     "baseUrl": "."
