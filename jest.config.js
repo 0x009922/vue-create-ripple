@@ -4,7 +4,7 @@ module.exports = {
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
   globals: {
     'ts-jest': {
-      babelConfig: true
+      babelConfig: 'babel.config.test.json'
     }
   },
   collectCoverageFrom: [

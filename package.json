@@ -11,7 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/LiquidSolid/vue-create-ripple.git"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "lint": "eslint . --fix",
     "build": "rollup -c",
@@ -22,10 +24,12 @@
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-typescript": "^7.10.4",
+    "@rollup/plugin-babel": "^5.2.0",
     "@types/jest": "^26.0.10",
     "@typescript-eslint/eslint-plugin": "^3.9.0",
     "@typescript-eslint/parser": "^3.9.0",
     "babel-jest": "^26.3.0",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-import-resolver-typescript": "^2.2.0",
