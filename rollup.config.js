@@ -1,4 +1,5 @@
 import ts from 'rollup-plugin-typescript2';
+import babel from '@rollup/plugin-babel';
 import dts from 'rollup-plugin-dts';
 import rimraf from 'rimraf';
 import pkg from './package.json';
@@ -13,7 +14,16 @@ export default [
       format: 'es'
     },
     plugins: [
-      ts()
+      ts({
+        tsconfigOverride: {
+          compilerOptions: {
+            removeComments: true
+          }
+        }
+      }),
+      babel({
+        extensions: ['.ts']
+      })
     ]
   },
   {
