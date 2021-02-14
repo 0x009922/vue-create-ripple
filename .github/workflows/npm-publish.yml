@@ -1,3 +1,5 @@
+name: Publish to NPM
+
 on:
   push:
     branches: [ develop ]
@@ -27,4 +29,3 @@ jobs:
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./packages/vue-create-ripple/package.json
-          dry-run: true

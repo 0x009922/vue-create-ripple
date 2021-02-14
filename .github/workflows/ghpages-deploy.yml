@@ -1,4 +1,4 @@
-name: CD
+name: Deploy to Pages
 
 on:
   push:
@@ -36,4 +36,4 @@ jobs:
         git init
         git add --all
         git commit -m "Auto update pages on $(date +'%Y-%m-%d %H:%M:%S')"
-        git push -f https://${{ secrets.MY_GITHUB_ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git master:gh-pages --dry-run
+        git push -f https://${{ secrets.MY_GITHUB_ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git master:gh-pages
