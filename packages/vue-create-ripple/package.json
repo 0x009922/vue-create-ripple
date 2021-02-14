@@ -25,11 +25,12 @@
     "url": "git+https://github.com/0x009922/vue-create-ripple.git"
   },
   "files": [
-    "target"
+    "target/vue-create-ripple.es.js",
+    "target/vue-create-ripple.d.ts"
   ],
   "scripts": {
     "lint": "eslint . --fix",
-    "build": "concurrently \"tsc\" \"rollup -c\" && vite build &&  rm -r target/ts target/vite",
+    "build": "concurrently \"tsc\" \"rollup -c\" && vite build && mv target/vite/* target/",
     "test:unit": "jest",
     "test:coverage": "jest --coverage"
   },
