@@ -1,12 +1,5 @@
 # vue-create-ripple
 
-Flexible tool for creating Ripple effect in Vue 3.
+Root of `vue-create-ripple` monorepo. Here is the package and its documentation.
 
-[Documentation with demo](https://liquidsolid.github.io/vue-create-ripple-docs/).
-
-## Todo
-
-- [ ] Test all
-- [ ] Transpile with Babel build?
-- [x] Remove from build type declarations of tests
-- [x] Combine all type declarations in a single file.
+Main package located at [./packages/vue-create-ripple](/packages/vue-create-ripple/).

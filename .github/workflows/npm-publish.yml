@@ -1,4 +1,8 @@
-on: push
+name: Publish to NPM
+
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   publish:
@@ -8,20 +12,20 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: 10
+          node-version: 14.x
+
+      - name: Install pnpm
+        run: npm i -g pnpm
 
       - name: Install packages
-        uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install
+        run: pnpm install --shamefully-hoist
 
-      - name: Unit tests
-        run: npm run test:unit
-
-      - name: Build
-        run: npm run build
+      - name: Test & Build
+        working-directory: ./packages/vue-create-ripple
+        run: pnpm test:unit && pnpm build
 
       - name: Publish
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
+          package: ./packages/vue-create-ripple/package.json
