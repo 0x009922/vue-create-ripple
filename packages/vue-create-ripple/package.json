@@ -10,7 +10,7 @@
     "design",
     "vue 3"
   ],
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "target/vue-create-ripple.es.js",
   "module": "target/vue-create-ripple.es.js",
   "types": "target/vue-create-ripple.d.ts",
