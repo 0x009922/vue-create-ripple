@@ -1,8 +1,8 @@
 # vue-create-ripple
 
-Flexible Ripple Directive for Vue 3. Contains TypeScript declarations.
+Flexible Ripple Directive for Vue 3.
 
-[Documentation & demo.](https://0x009922.github.io/vue-create-ripple/)
+Contains TypeScript declarations. [Documentation & demo.](https://0x009922.github.io/vue-create-ripple/)
 
 ### Install
 
