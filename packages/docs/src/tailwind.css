@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+code {
+  padding: 0.25rem;
+  hyphens: none;
+  line-height: 1;
+  @apply bg-gray-200 rounded font-mono;
+}
