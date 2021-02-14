@@ -1,23 +1,35 @@
 {
   "name": "vue-create-ripple",
   "description": "Flexible tool for creating Ripple effect in Vue 3.",
-  "homepage": "https://liquidsolid.github.io/vue-create-ripple-docs/",
-  "keywords": ["vue", "ripple", "directive", "material", "design", "vue 3"],
-  "version": "0.2.1",
-  "main": "dist/vue-create-ripple.esm.js",
-  "module": "dist/vue-create-ripple.esm.js",
-  "types": "dist/vue-create-ripple.d.ts",
+  "homepage": "https://0x009922.github.io/vue-create-ripple-docs/",
+  "keywords": [
+    "vue",
+    "ripple",
+    "directive",
+    "material",
+    "design",
+    "vue 3"
+  ],
+  "version": "0.3.0",
+  "main": "target/vue-create-ripple.es.js",
+  "module": "target/vue-create-ripple.es.js",
+  "types": "target/vue-create-ripple.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-create-ripple.es.js"
+    }
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LiquidSolid/vue-create-ripple.git"
+    "url": "git+https://github.com/0x009922/vue-create-ripple.git"
   },
   "files": [
-    "dist"
+    "target"
   ],
   "scripts": {
     "lint": "eslint . --fix",
-    "build": "rollup -c",
+    "build": "concurrently \"tsc\" \"rollup -c\" && vite build &&  rm -r target/ts target/vite",
     "test:unit": "jest",
     "test:coverage": "jest --coverage"
   },
@@ -27,24 +39,29 @@
     "@babel/preset-typescript": "^7.10.4",
     "@rollup/plugin-babel": "^5.2.0",
     "@types/jest": "^26.0.10",
-    "@typescript-eslint/eslint-plugin": "^3.9.0",
-    "@typescript-eslint/parser": "^3.9.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.15.0",
     "babel-jest": "^26.3.0",
     "babel-preset-env": "^1.7.0",
+    "concurrently": "^5.3.0",
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-import-resolver-typescript": "^2.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jest": "^23.20.0",
+    "eslint-plugin-jest": "^24.1.3",
     "flush-promises": "^1.0.2",
     "jest": "^26.4.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.23.1",
-    "rollup-plugin-dts": "^1.4.11",
-    "rollup-plugin-typescript2": "^0.27.2",
+    "rollup-plugin-dts": "^2.0.1",
+    "rollup-plugin-typescript2": "^0.29.0",
     "ts-jest": "^26.2.0",
     "tslib": "^2.0.1",
-    "typescript": "^3.9.7",
-    "vue": "3.0.0-rc.5"
+    "typescript": "^4.1.5",
+    "vite": "^2.0.0-beta.69",
+    "vue": "^3.0.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
   }
 }

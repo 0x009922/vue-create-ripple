@@ -11,7 +11,10 @@
     // "declaration": true,
 
     "rootDir": ".",
-    "baseUrl": "."
+    "baseUrl": ".",
+
+    "outDir": "target/ts",
+    "skipLibCheck": true
   },
-  "include": ["src", "__tests__"]
+  "include": ["src", "__tests__"],
 }
