@@ -1,7 +1,7 @@
 <template>
   <div class="grid gap-4 md:grid-cols-2">
     <card
-      to="https://github.com/LiquidSolid/vue-create-ripple"
+      to="https://github.com/0x009922/vue-create-ripple"
       class="flex items-center p-4 space-x-2"
     >
       <v-icon :path="mdiGithub" />
