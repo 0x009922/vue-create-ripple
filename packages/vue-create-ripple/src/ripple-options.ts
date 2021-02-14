@@ -2,6 +2,14 @@ import { SetRequired } from 'type-fest';
 
 export interface RippleOptions {
   /**
+   * The class to be assigned to the circle. Can be used
+   * for quick and easy styling.
+   *
+   * ! If not specified, then nothing will be visible
+   */
+  class?: string | null;
+
+  /**
    * Effect disappearence timing function
    *
    * @default 'cubic-bezier(0.4, 0, 0.2, 1)'
@@ -28,14 +36,6 @@ export interface RippleOptions {
    * @default '.8s'
    */
   appearDuration?: string;
-
-  /**
-   * The class to be assigned to the circle. Can be used
-   * for quick and easy styling.
-   *
-   * ! If not specified, then nothing will be visible
-   */
-  class?: string | null;
 
   /**
    * Flag to disable effect triggering

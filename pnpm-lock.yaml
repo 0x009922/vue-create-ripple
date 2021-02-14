@@ -1,44 +1,4 @@
 importers:
-  packages/vue-create-ripple-docs:
-    dependencies:
-      '@mdi/js': 5.9.55
-      prismjs: 1.23.0
-      vue: 3.0.5
-      vue-create-ripple: 0.2.1
-    devDependencies:
-      '@types/prismjs': 1.16.2
-      '@typescript-eslint/eslint-plugin': 4.15.0_bc16c4564afe16e3219e549b81836acd
-      '@typescript-eslint/parser': 4.15.0_eslint@7.20.0+typescript@4.1.5
-      '@vitejs/plugin-vue': 1.1.4_@vue+compiler-sfc@3.0.5
-      '@vue/compiler-sfc': 3.0.5_vue@3.0.5
-      autoprefixer: 10.2.4_postcss@8.2.6
-      eslint: 7.20.0
-      eslint-plugin-vue: 7.5.0_eslint@7.20.0
-      postcss: 8.2.6
-      sass: 1.32.7
-      tailwindcss: 2.0.3_759587f5361760629983e9fe457a3aed
-      tailwindcss-elevation: 1.0.1_tailwindcss@2.0.3
-      typescript: 4.1.5
-      vite: 2.0.0-beta.69
-    specifiers:
-      '@mdi/js': ^5.5.55
-      '@types/prismjs': ^1.16.1
-      '@typescript-eslint/eslint-plugin': ^4.15.0
-      '@typescript-eslint/parser': ^4.15.0
-      '@vitejs/plugin-vue': ^1.1.4
-      '@vue/compiler-sfc': 3.0.5
-      autoprefixer: ^10.2.4
-      eslint: ^7.7.0
-      eslint-plugin-vue: ^7.0.0-beta.2
-      postcss: ^8.2.6
-      prismjs: ^1.21.0
-      sass: ^1.26.10
-      tailwindcss: ^2.0.3
-      tailwindcss-elevation: ^1.0.1
-      typescript: ^4.1.5
-      vite: 2.0.0-beta.69
-      vue: ^3.0.5
-      vue-create-ripple: 0.2.1
   packages/vue-create-ripple:
     devDependencies:
       '@babel/core': 7.12.16
@@ -96,6 +56,46 @@ importers:
       typescript: ^4.1.5
       vite: ^2.0.0-beta.69
       vue: ^3.0.0
+  packages/vue-create-ripple-docs:
+    dependencies:
+      '@mdi/js': 5.9.55
+      prismjs: 1.23.0
+      vue: 3.0.5
+      vue-create-ripple: 0.2.1
+    devDependencies:
+      '@types/prismjs': 1.16.2
+      '@typescript-eslint/eslint-plugin': 4.15.0_bc16c4564afe16e3219e549b81836acd
+      '@typescript-eslint/parser': 4.15.0_eslint@7.20.0+typescript@4.1.5
+      '@vitejs/plugin-vue': 1.1.4_@vue+compiler-sfc@3.0.5
+      '@vue/compiler-sfc': 3.0.5_vue@3.0.5
+      autoprefixer: 10.2.4_postcss@8.2.6
+      eslint: 7.20.0
+      eslint-plugin-vue: 7.5.0_eslint@7.20.0
+      postcss: 8.2.6
+      sass: 1.32.7
+      tailwindcss: 2.0.3_759587f5361760629983e9fe457a3aed
+      tailwindcss-elevation: 1.0.1_tailwindcss@2.0.3
+      typescript: 4.1.5
+      vite: 2.0.0-beta.69
+    specifiers:
+      '@mdi/js': ^5.5.55
+      '@types/prismjs': ^1.16.1
+      '@typescript-eslint/eslint-plugin': ^4.15.0
+      '@typescript-eslint/parser': ^4.15.0
+      '@vitejs/plugin-vue': ^1.1.4
+      '@vue/compiler-sfc': 3.0.5
+      autoprefixer: ^10.2.4
+      eslint: ^7.7.0
+      eslint-plugin-vue: ^7.0.0-beta.2
+      postcss: ^8.2.6
+      prismjs: ^1.21.0
+      sass: ^1.26.10
+      tailwindcss: ^2.0.3
+      tailwindcss-elevation: ^1.0.1
+      typescript: ^4.1.5
+      vite: 2.0.0-beta.69
+      vue: ^3.0.5
+      vue-create-ripple: 0.2.1
 lockfileVersion: 5.2
 packages:
   /@babel/code-frame/7.12.11:

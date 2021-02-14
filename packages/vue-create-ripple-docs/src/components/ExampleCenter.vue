@@ -27,12 +27,12 @@ import { useI18n } from "./I18n";
 
 const But: FunctionalComponent = (props, { slots, attrs }) => {
   return h('div', mergeProps(attrs, {
-    class: 'rounded bg-orange-200 text-orange-600 cursor-pointer select-none p-3 text-center'
+    class: 'rounded bg-yellow-200 text-yellow-600 cursor-pointer select-none p-3 text-center'
   }), slots)
 }
 
 const LocalRipple = createRippleDirective({
-  class: 'bg-orange-600 opacity-50'
+  class: 'bg-yellow-600 opacity-50'
 })
 
 export default defineComponent({

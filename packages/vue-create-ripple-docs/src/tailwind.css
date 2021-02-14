@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 code {
-  padding: 0.25rem;
   hyphens: none;
   line-height: 1;
+  padding: 0.125rem 0.25rem;
   @apply bg-gray-200 rounded font-mono;
 }

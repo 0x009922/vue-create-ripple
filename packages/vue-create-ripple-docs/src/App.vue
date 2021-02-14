@@ -1,7 +1,7 @@
 <template>
   <i18n-container :lang="lang">
     <contents-container>
-      <main class="max-w-screen-md overflow-hidden mx-auto p-4 pb-24">
+      <main class="max-w-screen-md overflow-hidden mx-auto p-4 py-16 pb-24">
         <language-picker
           v-model:value="lang"
           :options="languages"
@@ -17,18 +17,18 @@
           >
             <i18n>
               <template #ru>
-                Гибкий инструментарий для создания
-                <floating-chars
-                  delay="0.12"
-                  word="Ripple-эффекта"
-                /> во Vue 3.
-              </template>
-              <template #en>
-                Flexible toolkit for creating
+                Гибкая
                 <floating-chars
                   delay="0.12"
                   word="Ripple"
-                /> effect in Vue 3.
+                />-директива для Vue 3.
+              </template>
+              <template #en>
+                Flexible
+                <floating-chars
+                  delay="0.12"
+                  word="Ripple"
+                /> Directive for Vue 3.
               </template>
             </i18n>
           </div>
@@ -408,7 +408,7 @@
 
           <hr>
 
-          <v-section>
+          <!-- <v-section>
             <contents-header id="playground">
               <i18n>
                 <template #ru>
@@ -425,7 +425,7 @@
             </p>
           </v-section>
 
-          <hr>
+          <hr> -->
 
           <v-section>
             <contents-header id="links">

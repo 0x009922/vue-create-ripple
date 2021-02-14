@@ -31,9 +31,9 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { createRippleDirective } from 'vue-create-ripple';
-import { defineComponent, Directive, computed } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { useI18n } from './I18n';
 
 const colors = [
@@ -56,7 +56,7 @@ const directives = colors.reduce(
 
     return prev;
   },
-  {} as Record<string, Directive>
+  {}
 );
 
 const jsCode = () => `
@@ -88,7 +88,7 @@ export default defineComponent({
 });
 `;
 
-const htmlCode = (wanna: unknown) => `
+const htmlCode = (wanna) => `
 <div
   v-ripple-purple
   v-ripple-indigo

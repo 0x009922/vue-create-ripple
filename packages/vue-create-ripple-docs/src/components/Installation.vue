@@ -10,20 +10,20 @@
     </i18n>
   </p>
 
-  <div class="grid gap-4 md:grid-cols-2">
+  <!-- <div class="grid gap-4 md:grid-cols-2"> -->
     <div class="space-y-2">
       <span>npm</span>
       <v-code>
         npm install vue-create-ripple
       </v-code>
     </div>
-    <div class="space-y-2">
+    <!-- <div class="space-y-2">
       <span>yarn</span>
       <v-code>
         yarn add vue-create-ripple
       </v-code>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
 
   <p>
     <i18n>

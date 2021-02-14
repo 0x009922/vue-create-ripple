@@ -1,27 +1,19 @@
 <template>
-  <p>
-    <v-a
-      href="https://github.com/LiquidSolid/vue-create-ripple/blob/master/src/ripple-options.ts"
-      target="_blank"
-    >
-      src/ripple-options.ts
-      <v-icon
-        :path="mdiOpenInNew"
-        size="16"
-        fill="currentColor"
-      />
-    </v-a>.
-  </p>
+  <v-code lang="ts" v-once>
+    {{ OPTS }}
+  </v-code>
 </template>
 
 <script lang="ts">
 import { mdiOpenInNew } from '@mdi/js';
 import { defineComponent } from "vue";
+import OPTS from '../assets/ripple-options.txt?raw'
 
 export default defineComponent({
   setup() {
     return {
-      mdiOpenInNew
+      mdiOpenInNew,
+      OPTS
     }
   }
 })

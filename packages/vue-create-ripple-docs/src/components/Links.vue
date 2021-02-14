@@ -1,5 +1,5 @@
 <template>
-  <div class="grid gap-4 md:grid-cols-3">
+  <div class="grid gap-4 md:grid-cols-2">
     <card
       to="https://github.com/LiquidSolid/vue-create-ripple"
       class="flex items-center p-4 space-x-2"
@@ -24,7 +24,7 @@
       </div>
     </card>
 
-    <card
+    <!-- <card
       to="https://github.com/LiquidSolid/vue-create-ripple-docs"
       class="flex items-center p-4 space-x-2"
     >
@@ -43,7 +43,7 @@
           </template>
         </i18n>
       </div>
-    </card>
+    </card> -->
   </div>
 </template>
 

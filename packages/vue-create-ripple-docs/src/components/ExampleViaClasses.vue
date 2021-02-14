@@ -23,7 +23,7 @@
 
 <script lang="ts">
 
-const colors = ['red', 'orange', 'green', 'blue', 'purple'];
+const colors = ['red', 'yellow', 'green', 'blue', 'purple'];
 
 const codeHTML = `
 <div

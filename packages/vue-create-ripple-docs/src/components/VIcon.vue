@@ -3,7 +3,7 @@ import { FunctionalComponent, mergeProps, h } from "vue";
 
 export interface VIconProps {
   path: string;
-  size: number;
+  size: number | string;
 }
 
 const VIcon: FunctionalComponent<VIconProps> = (props, { attrs }) => {
@@ -32,7 +32,7 @@ VIcon.props = {
     required: true
   },
   size: {
-    type: Number,
+    type: [Number, String],
     default: 24,
   }
 }

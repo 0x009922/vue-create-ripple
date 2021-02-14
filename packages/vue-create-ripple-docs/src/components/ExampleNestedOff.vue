@@ -8,7 +8,7 @@ export default defineComponent({
     const { t } = useI18n({});
 
     return () => h(Card, {
-      noNested: true
+      noNested: false
     }, {
       default: () => t({
         ru: 'Попробуйте кликнуть на кнопки ниже и на саму карточку',

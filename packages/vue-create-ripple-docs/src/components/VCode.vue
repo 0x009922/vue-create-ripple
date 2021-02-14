@@ -52,7 +52,7 @@ const component: FunctionalComponent<CodeProps> = (props, { slots }) => {
     class: 'v-code'
   }, [
     h('pre', {
-      class: `h-full p-4 shadow-inner overflow-auto relative text-sm rounded language-`,
+      class: `h-full p-4 shadow-inner overflow-auto relative rounded language-`,
     }, [content, langBanner])
   ])
 }
@@ -66,3 +66,8 @@ component.props = {
 
 export default component;
 </script>
+
+<style lang="sass">
+.v-code pre
+  font-size: 12px !important
+</style>
