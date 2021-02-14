@@ -8,18 +8,19 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: 10
+          node-version: 14
+
+      - name: 'Install pnpm'
+        run: npm i -g pnpm
 
       - name: Install packages
-        uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install
+        run: pnpm install
 
       - name: Unit tests
-        run: npm run test:unit
+        run: pnpm test:unit
 
       - name: Build
-        run: npm run build
+        run: pnpm build
 
       - name: Publish
         uses: JS-DevTools/npm-publish@v1

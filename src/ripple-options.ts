@@ -1,68 +1,104 @@
-export interface NormalizedRippleOptions {
+import { SetRequired } from 'type-fest'
+
+export interface RippleOptions {
   /**
-   * Тайминг-функция исчезновения ripple.
-   * По умолчанию 'cubic-bezier(0.4, 0, 0.2, 1)'
+   * Effect disappearence timing function
+   * 
+   * @default 'cubic-bezier(0.4, 0, 0.2, 1)'
    */
-  disappearEasing: string;
+  disappearEasing?: string;
+
   /**
-   * Длительность исчезновения ripple.
-   * По умолчанию '.7s'
+   * Effect disappearence duration
+   * 
+   * @default '.7s'
    */
-  disappearDuration: string;
+  disappearDuration?: string;
+
   /**
-   * Тайминг-функция увеличения круга.
-   * По умолчанию 'cubic-bezier(0.16, 1, 0.3, 1)'
-   */
-  appearEasing: string;
-  /**
-   * Длительность увеличения круга.
-   * По умолчанию '.8s'
-   */
-  appearDuration: string;
-  /**
-   * Класс, который будет задан кругу. Можно использовать
-   * для быстрой и простой стилизации.
+   * Effect appearence timing function
    *
-   * ! Если не будет указан, то ничего не будет видно
+   * @default 'cubic-bezier(0.16, 1, 0.3, 1)'
+   */
+  appearEasing?: string;
+
+  /**
+   * Effect appearence duration
+   * 
+   * @default '.8s'
+   */
+  appearDuration?: string;
+
+  /**
+   * The class to be assigned to the circle. Can be used
+   * for quick and easy styling.
+   *
+   * ! If not specified, then nothing will be visible
    */
   class?: string | null;
+
   /**
-   * Если `true`, то эффект не будет срабатывать
+   * Flag to disable effect triggering
    */
-  disabled: boolean;
+  disabled?: boolean;
+
   /**
-   * Если `true`, то эффект всегда будет исходить из центра элемента.
+   * If `true`, the effect will always come from the center of the element.
+   * 
+   * @default false
    */
-  center: boolean;
+  center?: boolean;
+
   /**
-   * Если `true`, то эффект сработает только при событии
-   * `mousedown` на самом элементе, а не его потомках
+   * If `true`, then the effect will work only on event
+   * `mousedown` on the element itself, not its descendants
+   * 
+   * @default false
    */
-  self: boolean;
+  self?: boolean;
+
   /**
-   * Если `true`, то эффект при клике на дочернем элементе не сработает,
-   * если в дереве его родителей найдётся элемент с привязанной к нему
-   * директивой и этот элемент является дочерним к текущему. По умолчанию
-   * `true`, так что нужно явно указать `false` для отключения эффекта
+   * If `true`, then the effect when clicking on the child element will not work,
+   * if in the tree of its parents there is an element bound to it
+   * directive and this element is a child of the current one. Default
+   * `true`, so you need to explicitly specify `false` to disable this option
+   * 
+   * @default true
    */
-  noNested: boolean;
+  noNested?: boolean;
+
   /**
-   * Объект для передачи стиля контейнеру напрямую.
+   * Additional css styles for the container
    */
   containerStyle?: Partial<CSSStyleDeclaration>;
+
   /**
-   * Объект для передачи стиля круга напрямую.
+   * Additional css styles for the ripple
    */
   circleStyle?: Partial<CSSStyleDeclaration>;
+
   /**
-   * Абсолютное значение максимального радиуса круга (в пикселях).
-   * По умолчанию круг растягивается настолько, чтобы полностью покрыть весь
-   * элемент.
+   * The absolute value of the maximum radius of the circle (in pixels).
+   * By default, the circle is stretched enough to completely cover the entire
+   * element.
+   * 
+   * `null` means to stretch
    */
-  radius: number | null;
+  radius?: number | null;
 }
 
-export type RippleOptions = Partial<NormalizedRippleOptions>;
+export type NormalizedRippleOptions = SetRequired<
+  RippleOptions,
+  | 'appearDuration'
+  | 'appearEasing'
+  | 'center'
+  | 'disabled'
+  | 'disappearDuration'
+  | 'disappearEasing' 
+  | 'noNested'
+  | 'radius'
+  | 'self'
+>;
 
 const defaults: NormalizedRippleOptions = {
   disappearEasing: 'cubic-bezier(0.4, 0, 0.2, 1)',
