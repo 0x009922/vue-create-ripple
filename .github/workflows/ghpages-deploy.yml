@@ -2,7 +2,7 @@ name: CD
 
 on:
   push:
-    branches: [ master ]
+    branches: [ develop ]
 
 jobs:
   build:
@@ -16,16 +16,20 @@ jobs:
       with:
         node-version: 12.16
 
-    - name: Install packages
-      run: npm install
+    - name: Install pnpm
+      run: npm install -g pnpm
 
-    - name: Build application
-      run: npm run build
+    - name: Install packages
+      run: pnpm i --shamefully-hoist
+
+    - name: Build
+      working-directory: ./packages/docs
+      run: pnpm build
       env:
         PUBLIC_PATH: /vue-create-ripple-docs/
 
     - name: Init git repo in 'dist'
-      working-directory: ./dist
+      working-directory: ./packages/docs/dist
       run: |
         git config --global user.email "${GITHUB_ACTOR}@https://users.noreply.github.com/"
         git config --global user.name "${GITHUB_ACTOR}"
@@ -36,4 +40,4 @@ jobs:
     - name: Push to master:gh-pages
       working-directory: ./dist
       run: |
-        git push -f https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git master:gh-pages
+        git push -f https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git master:gh-pages --dry-run

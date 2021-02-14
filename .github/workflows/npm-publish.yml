@@ -1,4 +1,6 @@
-on: push
+on:
+  push:
+    branches: [ develop ]
 
 jobs:
   publish:
@@ -10,19 +12,19 @@ jobs:
         with:
           node-version: 14
 
-      - name: 'Install pnpm'
+      - name: Install pnpm
         run: npm i -g pnpm
 
       - name: Install packages
-        run: pnpm install
+        run: pnpm install --shamefully-hoist
 
-      - name: Unit tests
-        run: pnpm test:unit
-
-      - name: Build
-        run: pnpm build
+      - name: Test & Build
+        working-directory: ./packages/vue-create-ripple
+        run: pnpm test:unit && pnpm build
 
       - name: Publish
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
+          package: ./packages/vue-create-ripple/package.json
+          dry-run: true
