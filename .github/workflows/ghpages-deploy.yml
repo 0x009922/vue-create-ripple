@@ -1,0 +1,39 @@
+name: CD
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Set up Node.js 12.16
+      uses: actions/setup-node@v1.4.1
+      with:
+        node-version: 12.16
+
+    - name: Install packages
+      run: npm install
+
+    - name: Build application
+      run: npm run build
+      env:
+        PUBLIC_PATH: /vue-create-ripple-docs/
+
+    - name: Init git repo in 'dist'
+      working-directory: ./dist
+      run: |
+        git config --global user.email "${GITHUB_ACTOR}@https://users.noreply.github.com/"
+        git config --global user.name "${GITHUB_ACTOR}"
+        git init
+        git add --all
+        git commit -m "Auto update pages on $(date +'%Y-%m-%d %H:%M:%S')"
+
+    - name: Push to master:gh-pages
+      working-directory: ./dist
+      run: |
+        git push -f https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git master:gh-pages

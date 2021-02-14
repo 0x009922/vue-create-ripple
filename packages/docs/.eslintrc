@@ -1,0 +1,25 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion": 2020
+  },
+  "plugins": ["vue", "@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "vue/require-v-for-key": "off",
+    "vue/no-unused-vars": "warn",
+    "vue/valid-v-for": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-non-null-assertion": "off"
+  }
+}
