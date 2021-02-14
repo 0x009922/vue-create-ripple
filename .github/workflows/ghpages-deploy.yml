@@ -26,7 +26,7 @@ jobs:
       working-directory: ./packages/docs
       run: pnpm build
       env:
-        PUBLIC_PATH: /vue-create-ripple-docs/
+        PUBLIC_PATH: /vue-create-ripple/
 
     - name: Init git repo and push it to master:gh-pages
       working-directory: ./packages/docs/dist

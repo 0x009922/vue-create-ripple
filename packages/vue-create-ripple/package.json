@@ -1,7 +1,7 @@
 {
   "name": "vue-create-ripple",
-  "description": "Flexible tool for creating Ripple effect in Vue 3.",
-  "homepage": "https://0x009922.github.io/vue-create-ripple-docs/",
+  "description": "Flexible Ripple Directive for Vue 3",
+  "homepage": "https://0x009922.github.io/vue-create-ripple/",
   "keywords": [
     "vue",
     "ripple",

@@ -1,16 +1,16 @@
-import { SetRequired } from 'type-fest'
+import { SetRequired } from 'type-fest';
 
 export interface RippleOptions {
   /**
    * Effect disappearence timing function
-   * 
+   *
    * @default 'cubic-bezier(0.4, 0, 0.2, 1)'
    */
   disappearEasing?: string;
 
   /**
    * Effect disappearence duration
-   * 
+   *
    * @default '.7s'
    */
   disappearDuration?: string;
@@ -24,7 +24,7 @@ export interface RippleOptions {
 
   /**
    * Effect appearence duration
-   * 
+   *
    * @default '.8s'
    */
   appearDuration?: string;
@@ -44,7 +44,7 @@ export interface RippleOptions {
 
   /**
    * If `true`, the effect will always come from the center of the element.
-   * 
+   *
    * @default false
    */
   center?: boolean;
@@ -52,7 +52,7 @@ export interface RippleOptions {
   /**
    * If `true`, then the effect will work only on event
    * `mousedown` on the element itself, not its descendants
-   * 
+   *
    * @default false
    */
   self?: boolean;
@@ -62,7 +62,7 @@ export interface RippleOptions {
    * if in the tree of its parents there is an element bound to it
    * directive and this element is a child of the current one. Default
    * `true`, so you need to explicitly specify `false` to disable this option
-   * 
+   *
    * @default true
    */
   noNested?: boolean;
@@ -81,7 +81,7 @@ export interface RippleOptions {
    * The absolute value of the maximum radius of the circle (in pixels).
    * By default, the circle is stretched enough to completely cover the entire
    * element.
-   * 
+   *
    * `null` means to stretch
    */
   radius?: number | null;
@@ -94,7 +94,7 @@ export type NormalizedRippleOptions = SetRequired<
   | 'center'
   | 'disabled'
   | 'disappearDuration'
-  | 'disappearEasing' 
+  | 'disappearEasing'
   | 'noNested'
   | 'radius'
   | 'self'
