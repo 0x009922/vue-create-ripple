@@ -1,5 +1,7 @@
 # vue-create-ripple
 
+[![npm](https://img.shields.io/npm/v/vue-create-ripple)](https://www.npmjs.com/package/vue-create-ripple)
+
 Flexible Ripple Directive for Vue 3.
 
 Contains TypeScript declarations. [Documentation & demo.](https://0x009922.github.io/vue-create-ripple/)
