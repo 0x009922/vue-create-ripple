@@ -503,7 +503,7 @@ export default defineComponent({
     const languages = ['ru', 'en'];
     const { lang } = useLocale({
       available: languages,
-      default: 'ru'
+      default: 'en'
     });
 
     return { languages, lang }
